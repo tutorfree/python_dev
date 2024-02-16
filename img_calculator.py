@@ -1,4 +1,4 @@
-from tkinter import Tk, Entry, Label, Button
+from tkinter import Tk, Entry, Label, Button, PhotoImage
 
 
 def reset_entries():
@@ -9,7 +9,6 @@ def reset_entries():
 
     # Lista de lbP
     lbP_list = [lbP1, lbP2, lbP3, lbP4, lbP5, lbP6, lbP7]
-
     # Configuração de fundo para todos os lbP
     for lbP in lbP_list:
         lbP.configure(bg=defaultbg)
@@ -44,7 +43,6 @@ def calcular():
                 lbP6.configure(bg=cor[5])
             else:
                 lbP7.configure(bg=cor[6])
-
         else:
             lbDivisao["text"] = "Campo(s) Vazio(s) ou fora do padrão!"
     except ValueError:
@@ -54,6 +52,8 @@ def calcular():
 if __name__ == "__main__":
     janela = Tk()
     janela.title("IMC Calculator")
+    img = PhotoImage(file='/path/icon.png')
+    janela.tk.call('wm', 'iconphoto', janela._w, img)
 
     lbPeso = Label(janela, text="Peso: ")
     lbPeso.place(x=50, y=40)
