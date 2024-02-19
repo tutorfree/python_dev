@@ -55,30 +55,30 @@ if __name__ == "__main__":
 
     for i, text in enumerate(lbP_labels, start=1):
         lbP = tk.Label(janela, text=text)
-        lbP.place(x=50, y=180 + 20*i)
+        lbP.place(x=50, y=160 + 20*i)
         lbP_list.append(lbP)
 
-    lbPeso = tk.Label(janela, text="Peso: ")
+    lbPeso = tk.Label(janela, text="Peso (Kg): ")
     lbPeso.place(x=50, y=40)
 
     peso = tk.Entry(janela)
-    peso.place(x=110, y=40, width=185)
+    peso.place(x=115, y=40, width=185)
     peso.focus_set()
 
-    lbAltura = tk.Label(janela, text="Altura: ")
+    lbAltura = tk.Label(janela, text="Altura (m): ")
     lbAltura.place(x=50, y=70)
 
     altura = tk.Entry(janela)
-    altura.place(x=110, y=70, width=185)
+    altura.place(x=115, y=70, width=185)
 
-    btCalcular = tk.Button(janela, text="Calcular", width=7, command=calcular)
-    btCalcular.place(x=110, y=110)
+    btCalcular = tk.Button(janela, text="Calcular", width=10, command=calcular)
+    btCalcular.place(x=115, y=110)
 
-    btLimpar = tk.Button(janela, text="Limpar", width=7, command=reset_entries)
+    btLimpar = tk.Button(janela, text="Limpar", width=10, command=reset_entries)
     btLimpar.place(x=213, y=110)
 
     lbDivisao = tk.Label(janela, text="", foreground="blue", font="-weight bold")
     lbDivisao.place(x=50, y=150)
 
-    janela.geometry("390x340+200+200")
+    janela.geometry("390x350+200+200")
     janela.mainloop()
