@@ -1,5 +1,4 @@
 import tkinter as tk
-import re
 
 def reset_entries():
     peso.delete(0, 'end')
