@@ -15,30 +15,23 @@ def calcular():
         peso_val = peso.get().replace(',', '.', 1)
         altura_val = altura.get().replace(',', '.', 1)
 
-        # Validando a entrada para strings não vazias e convertendo para float
         if peso_val and altura_val:
             p = float(peso_val)
             a = float(altura_val)
             imc = float('%.2f' % (p / a**2))
             lbDivisao.config(text=str(imc).replace('.', ',', 1))
-            
+
             for lbP in lbP_list:
                 lbP.config(bg=default_bg)
 
-            if imc <= 17:
-                lbP_list[0].config(bg=cor[0])
-            elif 17 < imc <= 18.49:
-                lbP_list[1].config(bg=cor[1])
-            elif 18.5 <= imc <= 24.99:
-                lbP_list[2].config(bg=cor[2])
-            elif 25 <= imc <= 29.99:
-                lbP_list[3].config(bg=cor[3])
-            elif 30 <= imc <= 34.99:
-                lbP_list[4].config(bg=cor[4])
-            elif 35 <= imc <= 39.99:
-                lbP_list[5].config(bg=cor[5])
+            limites_imc = [17, 18.49, 24.99, 29.99, 34.99, 39.99]
+            for i, limite in enumerate(limites_imc):
+                if imc <= limite:
+                    lbP_list[i].config(bg=cor[i])
+                    break
             else:
-                lbP_list[6].config(bg=cor[6])
+                lbP_list[-1].config(bg=cor[-1])  # Caso o IMC seja maior que o último limite
+
         else:
             lbDivisao.config(text="Campo(s) Vazio(s) ou fora do padrão!")
     except ValueError:
