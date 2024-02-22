@@ -14,6 +14,12 @@ todas_perguntas = []
 # Variável para rastrear a pontuação
 pontuacao = 0
 
+# Variável para rastrear a quantidade de perguntas geradas
+qtd_perguntas_geradas = 0
+
+# Referência ao último botão clicado
+ultimo_botao_clicado = None
+
 # Função para selecionar todas as perguntas do banco de dados e embaralhá-las
 def carregar_perguntas():
     global todas_perguntas
@@ -21,66 +27,81 @@ def carregar_perguntas():
     todas_perguntas.extend(cursor.fetchall())
     random.shuffle(todas_perguntas)
 
-# Função para exibir uma nova pergunta
 def exibir_nova_pergunta():
-    global todas_perguntas
+    global todas_perguntas, qtd_perguntas_geradas
     if not todas_perguntas:
         carregar_perguntas()
-    
-    pergunta, resposta1, resposta2, resposta3, resposta4, resposta_certa, tipo = todas_perguntas.pop()
+
+    pergunta, *respostas, resposta_certa, tipo = todas_perguntas.pop()
+
+    # Verificar se a resposta está correta antes do embaralhamento
+    resposta_index = int(resposta_certa) - 1
+    resposta_certa_texto = respostas[resposta_index]
 
     # Embaralhar as respostas
-    respostas = [resposta1, resposta2, resposta3, resposta4]
     random.shuffle(respostas)
 
     # Exibir a nova pergunta
     pergunta_label.config(text=pergunta)
 
+    # Exibir o nível da pergunta
+    label_nivel_pergunta.config(text=f'Nível: {tipo}')
+
     # Exibir as novas respostas como botões
     for i, resposta in enumerate(respostas):
-        botao_resposta = ttk.Button(janela, text=resposta, command=lambda resp=resposta, correta=resposta_certa: verificar_resposta(resp, correta))
+        botao_resposta = ttk.Button(janela, text=resposta, command=lambda resp=resposta, correta=resposta_certa_texto, tipo=tipo, respostas=respostas: verificar_resposta(resp, correta, tipo, respostas))
         botao_resposta.place(x=10, y=70 + i*30, width=380, height=30)
-        # Verificar se a resposta é a correta ao criar o botão
-        if resposta == resposta_certa:
-            botao_resposta.resposta_certa = True
-        else:
-            botao_resposta.resposta_certa = False
+
+    # Atualizar a contagem de perguntas geradas
+    qtd_perguntas_geradas += 1
+    label_qtd_perguntas.config(text=f'Pergunta {qtd_perguntas_geradas}')
 
     # Resetar a label de resultado
-    label_resultado["text"] = ""
+    label_resultado.config(text="")
 
-# Função para verificar a resposta selecionada
-def verificar_resposta(resposta_selecionada, resposta_certa):
+def verificar_resposta(resposta_selecionada, resposta_certa, tipo, respostas):
     global pontuacao
-    if resposta_certa:  # Comparar com a resposta correta
-        pontuacao += 1000
-        label_resultado["text"] = 'Parabéns! A resposta está correta.'
-    else:
-        label_resultado["text"] = 'Infelizmente, a resposta está incorreta.'
+    # Marcar o botão clicado como correto ou incorreto
+    for botao in janela.winfo_children():
+        if isinstance(botao, ttk.Button) and botao.cget('text') == resposta_selecionada:
+            if resposta_selecionada == resposta_certa:
+                botao.config(bootstyle=SUCCESS)
+                pontuacao += (1000 if tipo == 1 else 5000)
+                label_resultado.config(text='Parabéns! A resposta está correta.')
+            else:
+                botao.config(bootstyle=DANGER)
+                label_resultado.config(text='Infelizmente, a resposta está incorreta.')
 
     # Atualizar label de pontuação
-    label_pontuacao["text"] = f'Pontuação: {pontuacao}'
+    label_pontuacao.config(text=f'Pontuação: {pontuacao}')
 
     # Exibir a próxima pergunta após 2 segundos
     janela.after(2000, exibir_nova_pergunta)
 
 if __name__ == "__main__":
     # Criar a janela
-    janela = ttk.Window(themename="flatly")
+    janela = ttk.Window(themename="darkly")
     janela.geometry("700x400+200+200")
     
-
     # Criar o rótulo da pergunta
     pergunta_label = ttk.Label(janela, text="", font=('Arial', 16))
     pergunta_label.place(x=10, y=10, width=380, height=50)
 
     # Criar o rótulo de resultado
-    label_resultado = ttk.Label(janela, text="", foreground="blue", font="-weight bold")
+    label_resultado = ttk.Label(janela, text="", font="-weight bold", bootstyle=WARNING)
     label_resultado.place(x=10, y=250, width=380, height=30)
 
     # Criar o rótulo de pontuação inicial
     label_pontuacao = ttk.Label(janela, text="Pontuação: 0", font=('Arial', 12))
     label_pontuacao.place(x=10, y=300, width=380, height=30)
+
+    # Criar o rótulo do nível da pergunta
+    label_nivel_pergunta = ttk.Label(janela, text="Nível: ", font=('Arial', 10))
+    label_nivel_pergunta.place(x=10, y=330, width=380, height=30)
+
+    # Criar o rótulo da quantidade de perguntas geradas
+    label_qtd_perguntas = ttk.Label(janela, text="Pergunta 0", font=('Arial', 10))
+    label_qtd_perguntas.place(x=90, y=330, width=380, height=30)
 
     # Exibir a primeira pergunta
     exibir_nova_pergunta()
