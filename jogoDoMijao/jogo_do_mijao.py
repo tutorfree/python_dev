@@ -50,7 +50,7 @@ def exibir_nova_pergunta():
     # Exibir as novas respostas como botões
     for i, resposta in enumerate(respostas):
         botao_resposta = ttk.Button(janela, text=resposta, command=lambda resp=resposta, correta=resposta_certa_texto, tipo=tipo, respostas=respostas: verificar_resposta(resp, correta, tipo, respostas))
-        botao_resposta.place(x=10, y=70 + i*30, width=380, height=30)
+        botao_resposta.place(x=10, y=110 + i*30, width=380, height=30)
 
     # Atualizar a contagem de perguntas geradas
     qtd_perguntas_geradas += 1
@@ -60,8 +60,11 @@ def exibir_nova_pergunta():
     label_resultado.config(text="")
 
 def verificar_resposta(resposta_selecionada, resposta_certa, tipo, respostas):
+    # Definindo pontuacao como variavel global
     global pontuacao
-    # Marcar o botão clicado como correto ou incorreto
+    # Convertendo tipo para um inteiro
+    tipo = int(tipo) 
+    # Marcar o botão clicado com o correto ou incorreto
     for botao in janela.winfo_children():
         if isinstance(botao, ttk.Button) and botao.cget('text') == resposta_selecionada:
             if resposta_selecionada == resposta_certa:
@@ -81,11 +84,18 @@ def verificar_resposta(resposta_selecionada, resposta_certa, tipo, respostas):
 if __name__ == "__main__":
     # Criar a janela
     janela = ttk.Window(themename="darkly")
-    janela.geometry("700x400+200+200")
-    
+    janela.geometry("640x380+200+200")
+    janela.title("Jogo do Milhão")
+
+    # Gera o quadro da imagem decorativa
+    image = tk.PhotoImage(file="tkinter\\jogoMilhao\\silvio2.png")
+    image = image.subsample(1,1)
+    labelimage = tk.Label(image=image)
+    labelimage.place(x=430, y=50)
+
     # Criar o rótulo da pergunta
-    pergunta_label = ttk.Label(janela, text="", font=('Arial', 16))
-    pergunta_label.place(x=10, y=10, width=380, height=50)
+    pergunta_label = ttk.Label(janela, text="", font=('Arial', 16), justify=LEFT, anchor=W, wraplength=380)
+    pergunta_label.place(x=10, y=10, width=380, height=75)
 
     # Criar o rótulo de resultado
     label_resultado = ttk.Label(janela, text="", font="-weight bold", bootstyle=WARNING)
@@ -101,7 +111,7 @@ if __name__ == "__main__":
 
     # Criar o rótulo da quantidade de perguntas geradas
     label_qtd_perguntas = ttk.Label(janela, text="Pergunta 0", font=('Arial', 10))
-    label_qtd_perguntas.place(x=90, y=330, width=380, height=30)
+    label_qtd_perguntas.place(x=90, y=330, width=100, height=30)
 
     # Exibir a primeira pergunta
     exibir_nova_pergunta()
