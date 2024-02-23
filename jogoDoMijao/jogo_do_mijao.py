@@ -27,39 +27,44 @@ def carregar_perguntas():
     todas_perguntas.extend(cursor.fetchall())
     random.shuffle(todas_perguntas)
 
+
 def exibir_nova_pergunta():
     global todas_perguntas, qtd_perguntas_geradas
     if not todas_perguntas:
         carregar_perguntas()
 
-    pergunta, *respostas, resposta_certa, tipo = todas_perguntas.pop()
+    if todas_perguntas:
+        pergunta, *respostas, resposta_certa, tipo = todas_perguntas.pop()
 
-    # Verificar se a resposta está correta antes do embaralhamento
-    resposta_index = int(resposta_certa) - 1
-    resposta_certa_texto = respostas[resposta_index]
+        # Verificar se a resposta está correta antes do embaralhamento
+        resposta_index = int(resposta_certa) - 1
+        resposta_certa_texto = respostas[resposta_index]
 
-    # Embaralhar as respostas
-    random.shuffle(respostas)
+        # Embaralhar as respostas
+        random.shuffle(respostas)
 
-    # Exibir a nova pergunta
-    pergunta_label.config(text=pergunta)
+        # Exibir a nova pergunta
+        pergunta_label.config(text=pergunta)
 
-    # Exibir o nível da pergunta
-    label_nivel_pergunta.config(text=f'Nível: {tipo}')
+        # Exibir o nível da pergunta
+        label_nivel_pergunta.config(text=f'Nível: {tipo}')
 
-    # Exibir as novas respostas como botões
-    espacamento_vertical = 5
-    for i, resposta in enumerate(respostas):
-        botao_resposta = ttk.Button(janela, text=resposta, command=lambda resp=resposta, correta=resposta_certa_texto, tipo=tipo, respostas=respostas: verificar_resposta(resp, correta, tipo, respostas))
-        botao_resposta.place(x=10, y=110 + (30 + espacamento_vertical) * i, width=380, height=30)
+        # Exibir as novas respostas como botões
+        espacamento_vertical = 5
+        for i, resposta in enumerate(respostas):
+            botao_resposta = ttk.Button(janela, text=resposta, command=lambda resp=resposta, correta=resposta_certa_texto, tipo=tipo, respostas=respostas: verificar_resposta(resp, correta, tipo, respostas))
+            botao_resposta.place(x=10, y=110 + (30 + espacamento_vertical) * i, width=380, height=30)
 
+        # Atualizar a contagem de perguntas geradas
+        qtd_perguntas_geradas += 1
+        label_qtd_perguntas.config(text=f'Pergunta {qtd_perguntas_geradas}')
 
-    # Atualizar a contagem de perguntas geradas
-    qtd_perguntas_geradas += 1
-    label_qtd_perguntas.config(text=f'Pergunta {qtd_perguntas_geradas}')
+        # Resetar a label de resultado
+        label_resultado.config(text="")
+    else:
+        # Se não houver mais perguntas, exibir uma mensagem ou tomar outra ação adequada
+        print("Não há mais perguntas disponíveis.")
 
-    # Resetar a label de resultado
-    label_resultado.config(text="")
 
 def verificar_resposta(resposta_selecionada, resposta_certa, tipo, respostas):
     # Definindo pontuacao como variavel global
@@ -71,7 +76,16 @@ def verificar_resposta(resposta_selecionada, resposta_certa, tipo, respostas):
         if isinstance(botao, ttk.Button) and botao.cget('text') == resposta_selecionada:
             if resposta_selecionada == resposta_certa:
                 botao.config(bootstyle=SUCCESS)
-                pontuacao += (1000 if tipo == 1 else 5000)
+                if tipo == 1:
+                    pontuacao += 1000
+                elif tipo == 2:
+                    pontuacao += 5000
+                elif tipo == 3:
+                    pontuacao += 10000
+                elif tipo == 4:
+                    pontuacao += 50000
+                elif tipo == 5:
+                    pontuacao += 1000000
                 label_resultado.config(text='Parabéns! A resposta está correta.')
             else:
                 botao.config(bootstyle=DANGER)
@@ -82,6 +96,7 @@ def verificar_resposta(resposta_selecionada, resposta_certa, tipo, respostas):
 
     # Exibir a próxima pergunta após 2 segundos
     janela.after(2000, exibir_nova_pergunta)
+
 
 if __name__ == "__main__":
     # Criar a janela
