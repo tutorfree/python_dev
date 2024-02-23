@@ -48,9 +48,11 @@ def exibir_nova_pergunta():
     label_nivel_pergunta.config(text=f'Nível: {tipo}')
 
     # Exibir as novas respostas como botões
+    espacamento_vertical = 5
     for i, resposta in enumerate(respostas):
         botao_resposta = ttk.Button(janela, text=resposta, command=lambda resp=resposta, correta=resposta_certa_texto, tipo=tipo, respostas=respostas: verificar_resposta(resp, correta, tipo, respostas))
-        botao_resposta.place(x=10, y=110 + i*30, width=380, height=30)
+        botao_resposta.place(x=10, y=110 + (30 + espacamento_vertical) * i, width=380, height=30)
+
 
     # Atualizar a contagem de perguntas geradas
     qtd_perguntas_geradas += 1
