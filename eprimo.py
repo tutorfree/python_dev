@@ -6,7 +6,7 @@ class VerificadorPrimoTkinter:
     def __init__(self, root):
         self.root = root
         self.root.title("Verificador de Números Primos")
-        self.root.geometry("470x520")  # Aumentei um pouco a altura
+        self.root.geometry("470x520") # Dimesões da janela
         self.root.resizable(False, False)
         
         # Configurar cores
