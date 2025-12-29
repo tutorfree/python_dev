@@ -6,7 +6,7 @@ class VerificadorPrimoTkinter:
     def __init__(self, root):
         self.root = root
         self.root.title("Verificador de Números Primos")
-        self.root.geometry("470x520")
+        self.root.geometry("470x520")  # Aumentei um pouco a altura
         self.root.resizable(False, False)
         
         # Configurar cores
@@ -20,6 +20,9 @@ class VerificadorPrimoTkinter:
         
         # Configurar interface
         self.configurar_interface()
+        
+        # Configurar fechamento da janela
+        self.root.protocol("WM_DELETE_WINDOW", self.fechar_aplicacao)
         
     def configurar_interface(self):
         """Configurar todos os elementos da interface gráfica"""
@@ -38,7 +41,7 @@ class VerificadorPrimoTkinter:
         
         # Frame de entrada
         frame_entrada = ttk.LabelFrame(frame_principal, text="Entrada", padding="15")
-        frame_entrada.grid(row=1, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 20))
+        frame_entrada.grid(row=1, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 15))
         
         # Label para instrução
         instrucao_label = ttk.Label(
@@ -49,15 +52,15 @@ class VerificadorPrimoTkinter:
         instrucao_label.grid(row=0, column=0, sticky=tk.W, pady=(0, 10))
         
         # Campo de entrada
-        entrada_numero = ttk.Entry(
+        self.entrada_numero = ttk.Entry(
             frame_entrada,
             textvariable=self.numero_var,
             font=("Arial", 12),
             width=20,
             justify="center"
         )
-        entrada_numero.grid(row=1, column=0, pady=(0, 10))
-        entrada_numero.focus_set()
+        self.entrada_numero.grid(row=1, column=0, pady=(0, 10))
+        self.entrada_numero.focus_set()
         
         # Botão de verificação
         botao_verificar = ttk.Button(
@@ -70,7 +73,7 @@ class VerificadorPrimoTkinter:
         
         # Frame de resultado
         frame_resultado = ttk.LabelFrame(frame_principal, text="Resultado", padding="15")
-        frame_resultado.grid(row=2, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 20))
+        frame_resultado.grid(row=2, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 15))
         
         # Label de resultado
         self.label_resultado = ttk.Label(
@@ -79,14 +82,15 @@ class VerificadorPrimoTkinter:
             font=("Arial", 12, "bold"),
             anchor="center",
             relief="solid",
-            padding=10
+            padding=10,
+            width=30
         )
         self.label_resultado.grid(row=0, column=0, sticky=(tk.W, tk.E))
         self.label_resultado.configure(background=self.cor_neutro)
         
         # Frame de informações
         frame_info = ttk.LabelFrame(frame_principal, text="Informações sobre Primos", padding="15")
-        frame_info.grid(row=3, column=0, columnspan=2, sticky=(tk.W, tk.E))
+        frame_info.grid(row=3, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 15))
         
         # Texto informativo
         texto_info = """• Número primo é aquele que é divisível apenas por 1 e por ele mesmo
@@ -104,7 +108,7 @@ class VerificadorPrimoTkinter:
         
         # Frame de botões
         frame_botoes = ttk.Frame(frame_principal)
-        frame_botoes.grid(row=4, column=0, columnspan=2, pady=(20, 0))
+        frame_botoes.grid(row=4, column=0, columnspan=2, pady=(10, 0))
         
         # Botão de limpar
         botao_limpar = ttk.Button(
@@ -115,11 +119,11 @@ class VerificadorPrimoTkinter:
         )
         botao_limpar.grid(row=0, column=0, padx=(0, 10))
         
-        # Botão de sair
+        # Botão de sair - CORRIGIDO
         botao_sair = ttk.Button(
             frame_botoes,
             text="Sair",
-            command=self.root.quit,
+            command=self.fechar_aplicacao,  # Alterado para a função correta
             width=15
         )
         botao_sair.grid(row=0, column=1)
@@ -129,8 +133,8 @@ class VerificadorPrimoTkinter:
         frame_resultado.columnconfigure(0, weight=1)
         
         # Vincular tecla Enter
-        entrada_numero.bind('<Return>', lambda event: self.verificar_primo())
-        
+        self.entrada_numero.bind('<Return>', lambda event: self.verificar_primo())
+    
     def eh_primo(self, n):
         """Função para verificar se um número é primo"""
         if n <= 1:
@@ -155,6 +159,7 @@ class VerificadorPrimoTkinter:
             # Validar se há entrada
             if not texto_numero:
                 messagebox.showwarning("Aviso", "Por favor, digite um número.")
+                self.entrada_numero.focus_set()
                 return
             
             # Converter para inteiro
@@ -163,19 +168,23 @@ class VerificadorPrimoTkinter:
             # Verificar se é positivo
             if numero < 0:
                 messagebox.showwarning("Aviso", "Por favor, digite um número positivo.")
+                self.numero_var.set("")
+                self.entrada_numero.focus_set()
                 return
             
             # Verificar se é primo
             if self.eh_primo(numero):
                 resultado = f"{numero} É um número primo! ✓"
                 cor_fundo = self.cor_primo
+                cor_texto = "white"
             else:
                 resultado = f"{numero} NÃO é um número primo ✗"
                 cor_fundo = self.cor_nao_primo
+                cor_texto = "white"
             
             # Atualizar resultado
             self.resultado_var.set(resultado)
-            self.label_resultado.configure(background=cor_fundo)
+            self.label_resultado.configure(background=cor_fundo, foreground=cor_texto)
             
             # Mostrar informações adicionais para números não primos
             if numero > 1 and not self.eh_primo(numero):
@@ -185,7 +194,8 @@ class VerificadorPrimoTkinter:
             messagebox.showerror("Erro", "Por favor, digite um número inteiro válido.")
             self.numero_var.set("")
             self.resultado_var.set("Digite um número para verificar")
-            self.label_resultado.configure(background=self.cor_neutro)
+            self.label_resultado.configure(background=self.cor_neutro, foreground="black")
+            self.entrada_numero.focus_set()
     
     def mostrar_divisores(self, numero):
         """Mostrar divisores de um número não primo"""
@@ -198,11 +208,6 @@ class VerificadorPrimoTkinter:
                 divisores.append(str(i))
         
         if divisores:
-            if len(divisores) > 5:
-                mensagem = f"Divisores: {', '.join(divisores[:5])}... (total: {len(divisores)} divisores)"
-            else:
-                mensagem = f"Divisores: {', '.join(divisores)}"
-            
             # Criar janela popup com os divisores
             self.criar_popup_divisores(numero, divisores)
     
@@ -210,7 +215,7 @@ class VerificadorPrimoTkinter:
         """Criar popup com lista de divisores"""
         popup = tk.Toplevel(self.root)
         popup.title(f"Divisores de {numero}")
-        popup.geometry("300x400")
+        popup.geometry("300x250")
         popup.resizable(False, False)
         popup.transient(self.root)  # Torna a janela filha
         popup.grab_set()  # Torna modal
@@ -284,17 +289,18 @@ class VerificadorPrimoTkinter:
         """Limpar todos os campos e resetar interface"""
         self.numero_var.set("")
         self.resultado_var.set("Digite um número para verificar")
-        self.label_resultado.configure(background=self.cor_neutro)
+        self.label_resultado.configure(background=self.cor_neutro, foreground="black")
+        self.entrada_numero.focus_set()
+    
+    def fechar_aplicacao(self):
+        """Função para fechar a aplicação corretamente"""
+        resposta = messagebox.askyesno(
+            "Confirmar saída",
+            "Tem certeza que deseja sair do verificador de números primos?"
+        )
         
-        # Dar foco ao campo de entrada
-        for widget in self.root.winfo_children():
-            if isinstance(widget, ttk.Frame):
-                for child in widget.winfo_children():
-                    if isinstance(child, ttk.LabelFrame):
-                        for entry in child.winfo_children():
-                            if isinstance(entry, ttk.Entry):
-                                entry.focus_set()
-                                break
+        if resposta:
+            self.root.destroy()  # CORREÇÃO: usar destroy() em vez de quit()
 
 def main():
     """Função principal para iniciar a aplicação"""
