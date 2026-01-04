@@ -1,4 +1,5 @@
 # 🕐 Relógio Analógico com Temas - Tkinter
+<img width="684" height="488" alt="AnalogWatchTK" src="https://github.com/user-attachments/assets/5e2e0677-88c5-461b-b117-5cfb0296bb17" />
 
 Um relógio analógico flutuante e altamente personalizável desenvolvido em Python com Tkinter.
 
