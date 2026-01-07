@@ -1,5 +1,6 @@
 # 🎮 Jogo do Alfabeto Interativo
-<img width="802" height="551" alt="2026-01-07 04_20_34-Jogo do Alfabeto" src="https://github.com/user-attachments/assets/849b0a5e-bb8c-449e-b918-5d491a9e3530" />
+<img width="852" height="532" alt="2026-01-07 04_22_16-Jogo do Alfabeto" src="https://github.com/user-attachments/assets/b7c3cc42-0c01-464b-9fe9-d4f49a5c73bc" />
+
 Um jogo educativo em Python com Tkinter para crianças aprenderem o alfabeto através de drag-and-drop.
 
 ## ✨ Funcionalidades
