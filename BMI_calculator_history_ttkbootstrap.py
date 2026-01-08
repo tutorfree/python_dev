@@ -399,7 +399,7 @@ if __name__ == "__main__":
     # Criar janela principal com ttkbootstrap
     janela = ttk.Window(
         title="Calculadora de IMC Avançada",
-        themename="darkly",  # Tema: darkly, solar, superhero, etc.
+        themename="superhero",  # Tema: darkly, solar, superhero, etc.
         size=(500, 650),
         resizable=(False, False),
         position=(100, 100)
