@@ -1,6 +1,6 @@
 # 🕰️ Relógio Analógico Temático com Alarmes
 
-<img width="685" height="495" alt="2026-01-09 00_16_41-" src="https://github.com/user-attachments/assets/18842b7a-de2d-4093-ac02-36a8088b2a85" />
+<img width="685" height="495" alt="2026-01-09 00_16_41-" src="https://github.com/user-attachments/assets/0323685b-c4d4-4aa4-99ae-15c3790d8997" />
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Tkinter](https://img.shields.io/badge/Tkinter-GUI-orange)
