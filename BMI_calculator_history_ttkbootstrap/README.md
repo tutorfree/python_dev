@@ -34,10 +34,9 @@ Para executar este aplicativo, você precisará ter o Python 3.x instalado em se
 
 1.  **Clone o repositório (ou baixe o código-fonte):**
     ```bash
-    git clone <URL_DO_REPOSITORIO>
-    cd calculadora-imc-avancada
+    git clone github.com/tutorfree/python_dev
+    cd BMI_calculator_history_ttkbootstrap
     ```
-    *(Substitua `<URL_DO_REPOSITORIO>` pelo link real do seu repositório GitHub.)*
 
 2.  **Instale as dependências:**
     ```bash
@@ -48,9 +47,8 @@ Para executar este aplicativo, você precisará ter o Python 3.x instalado em se
 
 1.  **Execute o aplicativo:**
     ```bash
-    python imc_app.py
+    python BMI_calculator_history_ttkbootstrap.py
     ```
-    *(Certifique-se de que o arquivo principal do seu código Python se chama `imc_app.py` ou ajuste o comando conforme necessário.)*
 
 2.  **Calcule seu IMC:** Insira seu peso (em quilogramas) e altura (em metros) nos campos designados na janela principal e clique em "🧮 Calcular" ou pressione `Enter`.
 
