@@ -1,57 +1,47 @@
 # 🎯 Jogo do Milhão
-<img width="642" height="412" alt="Jogo do Milhão" src="https://github.com/user-attachments/assets/e667cc6e-0733-4ff4-9d5f-6a0b0bd97e9b" />
 
-Um jogo de perguntas e respostas desenvolvido em Python com interface gráfica moderna, usando banco de dados SQLite para armazenar as perguntas.
+![Jogo do Milhão](https://github.com/user-attachments/assets/e667cc6e-0733-4ff4-9d5f-6a0b0bd97e9b )
 
-https://img.shields.io/badge/Python-3.8+-blue.svg
-https://img.shields.io/badge/License-MIT-green.svg
-https://img.shields.io/badge/Status-100%2525%2520Funcional-brightgreen.svg
+*Um jogo de perguntas e respostas desenvolvido em Python com interface gráfica moderna, usando banco de dados SQLite para armazenar as perguntas.*
 
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg )](https://www.python.org/ )
+[![Licença](https://img.shields.io/badge/License-MIT-green.svg )](LICENSE)
+![Status](https://img.shields.io/badge/Status-100%25%20Funcional-brightgreen.svg )
 
 ## ✨ Funcionalidades
 
-    🎮 Sistema completo de perguntas e respostas
-
-    📊 Banco de dados SQLite para armazenamento de perguntas
-
-    🎨 Interface gráfica moderna com tema escuro (ttkbootstrap)
-
-    🔊 Feedback sonoro para acertos e erros
-
-    📈 Sistema de pontuação progressiva (1000 × nível)
-
-    🎯 Níveis de dificuldade (1-5) que aumentam automaticamente
-
-    🔄 Embaralhamento automático das alternativas
-
-    🏆 Controle de jogo com reinício e informações
-
-    ✅ Feedback visual imediato (cores verde/vermelho)
+- 🎮 **Sistema de Jogo:** Mecânica completa de perguntas e respostas.
+- 📊 **Banco de Dados:** Utiliza SQLite para armazenar e gerenciar as perguntas.
+- 🎨 **Interface Gráfica:** Interface moderna com tema escuro, criada com ttkbootstrap.
+- 🔊 **Feedback Sonoro:** Efeitos sonoros para acertos e erros.
+- 📈 **Pontuação Progressiva:** A pontuação aumenta a cada nível (1000 × nível).
+- 🎯 **Níveis de Dificuldade:** A dificuldade aumenta automaticamente do nível 1 ao 5.
+- 🔄 **Alternativas Embaralhadas:** As opções de resposta são sempre apresentadas em ordem aleatória.
+- 🏆 **Controle de Jogo:** Opções para reiniciar o jogo e exibir informações.
+- ✅ **Feedback Visual:** Respostas corretas e incorretas são sinalizadas com as cores verde e vermelho.
 
 ## 🛠️ Tecnologias Utilizadas
 
-    Python 3.8+
+- **Python 3.8+**
+- **Tkinter** com **ttkbootstrap** (para a interface gráfica)
+- **SQLite3** (para o banco de dados)
+- **Pygame** (para a reprodução de áudio)
+- **Módulo `random`** (para embaralhar perguntas e alternativas)
 
-    Tkinter + ttkbootstrap (interface gráfica)
+## 🚀 Instalação
 
-    SQLite3 (banco de dados)
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://URL-DO-SEU-REPOSITORIO.git
+    cd NOME-DO-DIRETORIO
+    ```
 
-    Pygame (reprodução de áudio)
-
-    Random (embaralhamento de perguntas)
-
-## Instalação
-
-    Clone o repositório ou baixe os arquivos
-
-    Instale as dependências:
-
+2.  **Instale as dependências:**
     ```bash
     pip install ttkbootstrap pygame
     ```
-    
-    Execute o jogo:
 
+3.  **Execute o jogo:**
     ```bash
     python main.py
     ```
