@@ -49,10 +49,6 @@ Para rodar este jogo em sua máquina, siga os passos abaixo:
     python memoryGameImages.py
     ```
 
-## 🤝 Como Contribuir
-
-Contribuições são bem-vindas! Se você tiver sugestões de melhoria, encontrar bugs ou quiser adicionar novas funcionalidades, sinta-se à vontade para abrir uma *issue* ou enviar um *pull request*.
-
 ## 📄 Licença
 
 Este projeto está licenciado sob a [Creative Commons Atribuição-NãoComercial 4.0 Internacional (CC BY-NC 4.0)](http://creativecommons.org/licenses/by-nc/4.0/).
