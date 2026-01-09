@@ -32,8 +32,8 @@
 
 1.  **Clone o repositório:**
     ```bash
-    git clone https://github.com/tutorfree/python_dev/
-    cd NOME-DO-DIRETORIO
+    git clone https://github.com/tutorfree/
+    cd python_dev
     ```
 
 2.  **Instale as dependências:**
