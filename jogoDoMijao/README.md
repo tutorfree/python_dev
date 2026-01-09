@@ -32,7 +32,7 @@
 
 1.  **Clone o repositório:**
     ```bash
-    git clone https://URL-DO-SEU-REPOSITORIO.git
+    git clone https://github.com/tutorfree/python_dev/
     cd NOME-DO-DIRETORIO
     ```
 
