@@ -43,10 +43,3 @@ Um relógio analógico elegante e altamente personalizável para desktop com sis
 ### Pré-requisitos
 - Python 3.8 ou superior
 - pip (gerenciador de pacotes Python)
-
-### Passo a Passo
-
-1. **Clone o repositório:**
-```bash
-git clone https://github.com/seu-usuario/relogio-analogico.git
-cd relogio-analogico
