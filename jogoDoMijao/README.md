@@ -39,3 +39,19 @@ https://img.shields.io/badge/Status-100%2525%2520Funcional-brightgreen.svg
     Pygame (reprodução de áudio)
 
     Random (embaralhamento de perguntas)
+
+## Instalação
+
+    Clone o repositório ou baixe os arquivos
+
+    Instale as dependências:
+
+    ```bash
+    pip install ttkbootstrap pygame
+    ```
+    
+    Execute o jogo:
+
+    ```bash
+    python main.py
+    ```
