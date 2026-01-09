@@ -9,8 +9,6 @@
 
 Um relógio analógico elegante e altamente personalizável para desktop com sistema completo de alarmes, temas visualmente atraentes e funcionalidades avançadas.
 
-![Relógio Analógico](https://via.placeholder.com/800x400.png?text=Relógio+Analógico+Temático+com+Alarmes)
-
 ## ✨ Características Principais
 
 ### 🎨 **Temas Visuais**
