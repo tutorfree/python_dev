@@ -32,7 +32,7 @@
 
 1.  **Clone o repositório:**
     ```bash
-    git clone https://github.com/tutorfree/
+    git clone https://github.com/tutorfree/python_dev/tree/main/jogoDoMijao
     cd python_dev
     ```
 
