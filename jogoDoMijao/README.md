@@ -45,3 +45,7 @@
     ```bash
     python main.py
     ```
+
+## 📄 Licença
+
+Este projeto está licenciado sob a [Creative Commons Atribuição-NãoComercial 4.0 Internacional (CC BY-NC 4.0)](http://creativecommons.org/licenses/by-nc/4.0/).
