@@ -8,6 +8,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 Uma urna eletrônica simulada desenvolvida em Python com interface gráfica usando Tkinter. Este projeto permite simular eleições com cadastro dinâmico de candidatos, sistema de votação e visualização de resultados em tempo real.
+
 ✨ Funcionalidades
 
     ✅ Sistema de votação completo com teclado numérico
