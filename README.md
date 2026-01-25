@@ -46,14 +46,14 @@ git clone https://github.com/tutorfree/python_dev/
 cd pasta-do-utilitário
 
 
-###📱 Compatibilidade
+### 📱 Compatibilidade
 
 - Windows 10/11
 - Linux (distribuições com suporte a Tkinter)
 - macOS (com suporte a X11)
 ```
 
-###Interface do Usuário
+### Interface do Usuário
 
 - Design responsivo e adaptável
 - Feedback visual imediato
