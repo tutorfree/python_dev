@@ -1,221 +1,89 @@
-# 🗳️ Urna Eletrônica em Python
-<img width="822" height="532" alt="urna" src="https://github.com/user-attachments/assets/83313b0a-677e-403e-9768-77b1f045759e" />
+# 🗳️ Urna Eletrônica Multiplataforma
+<img width="852" height="602" alt="Urna Eletrônica - Multiplataforma" src="https://github.com/user-attachments/assets/cd1218b5-17b2-4566-890a-4e5db94c6156" />
 
 ![Python](https://img.shields.io/badge/Python-3.7%2B-blue)
 ![Tkinter](https://img.shields.io/badge/GUI-Tkinter-orange)
 ![Pillow](https://img.shields.io/badge/Images-Pillow-lightblue)
-![Status](https://img.shields.io/badge/Status-Em_desenvolvimento-yellow)
+![Multiplatform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey)
+![Audio](https://img.shields.io/badge/Audio-Multiplatform-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-Uma urna eletrônica simulada desenvolvida em Python com interface gráfica usando Tkinter. Este projeto permite simular eleições com cadastro dinâmico de candidatos, sistema de votação e visualização de resultados em tempo real.
+Uma urna eletrônica completa desenvolvida em Python com suporte total para Windows, Linux e macOS.
 
-✨ Funcionalidades
+## ✨ Funcionalidades Principais
 
-    ✅ Sistema de votação completo com teclado numérico
+### 🗳️ Sistema de Votação
+- Teclado numérico completo (0-9)
+- Confirmação de voto com feedback visual
+- Correção de voto antes da confirmação
+- Visualização do candidato em tempo real
 
-    ✅ Cadastro dinâmico de candidatos (adicionar/remover)
+### 👥 Gerenciamento de Candidatos
+- **Adição dinâmica** de novos candidatos
+- **Remoção** de candidatos existentes
+- Upload de fotos dos candidatos
+- Validação de dados (número de 2 dígitos)
 
-    ✅ Placar em tempo real com porcentagens
+### 📊 Resultados e Relatórios
+- Placar em tempo real com porcentagens
+- Barras de progresso visuais
+- Exportação de resultados para arquivo TXT
+- Interface de resultados com scroll
 
-    ✅ Efeitos sonoros para feedback ao usuário
+### 🔊 Sistema de Áudio Multiplataforma
+- **Windows**: usa `winsound` nativo
+- **macOS**: usa `afplay` nativo  
+- **Linux**: suporta múltiplos players (`aplay`, `paplay`, `mpg123`, `vlc`)
+- Fallback silencioso se áudio não disponível
 
-    ✅ Interface intuitiva com fotos dos candidatos
+## 🚀 Como Executar
 
-    ✅ Persistência de imagens dos candidatos
-
-    ✅ Validação de dados e tratamento de erros
-
-## 🖼️ Capturas de Tela
-
-Interface Principal
-
-```text
-
-[ Número: __ ]
-[ Nome:      ]
-[ Foto do candidato ]
-
-[ 1 ][ 2 ][ 3 ][ BRANCO ]
-[ 4 ][ 5 ][ 6 ][ CORRIGE ]
-[ 7 ][ 8 ][ 9 ][ CONFIRMA ]
-[   0   ][   PLACAR   ]
-```
-
-## Placar de Resultados
-
-```text
-PLACAR ATUAL
-
-[Foto] Enzo      Votos: 15    25.0%
-[Foto] José      Votos: 12    20.0%
-...etc
-```
-
-## 🚀 Instalação
-
-### Pré-requisitos
-
-- Python 3.7 ou superior
-- pip (gerenciador de pacotes do Python)
-
-## Passos para instalação
-
-### Clone ou baixe o projeto
+### 1. Pré-requisitos
 
 ```bash
-git clone https://github.com/tutorfree/python_dev/new/main/urna_eletronica.git
-cd urna-eletronica
-```
-
-### Instale as dependências
-
-```bash
+# Instale o Pillow para manipulação de imagens
 pip install pillow
 ```
 
-### Estruture as pastas necessárias
+### 2. Estrutura de Pastas
 
-```bash
-mkdir sons fotos
+```text
+urna_eletronica/
+├── urna.py              # Código principal
+├── README.md            # Documentação
+├── sons/                # Sons da urna (opcional)
+│   ├── tecla.wav
+│   ├── confirma.wav
+│   └── erro.wav
+└── fotos/               # Fotos dos candidatos
+    ├── 11.png
+    ├── 12.png
+    └── ...
 ```
 
-### Adicione os sons (opcional)
-
-✅ Coloque os arquivos de som na pasta sons/:
-
-    tecla.wav - som ao pressionar teclas numéricas
-    confirma.wav - som ao confirmar voto
-    erro.wav - som ao corrigir ou erro
-
-✅ Adicione fotos dos candidatos (opcional):
-    Coloque imagens PNG (160x200px recomendado) na pasta fotos/ com os nomes:
-
-    11.png, 12.png, 22.png, etc.
-
-## 🎮 Como Usar
-
-### 1. Iniciar o Programa
+### 3. Executar a Aplicação
 ```bash
 python urna.py
 ```
 
-### 2. Votar
+## 🎮 Como Usar
 
-    - Digite o número do candidato (2 dígitos);
-    - Visualize as informações do candidato na tela;
-    - Pressione "CONFIRMA" para registrar o voto;
-    - Use "CORRIGE" para reiniciar a digitação.
+Para Votar:
 
-### 3. Gerenciar Candidatos
+    Digite o número do candidato (2 dígitos)
+    Confirme as informações na tela
+    Pressione CONFIRMA para registrar
+    Use CORRIGE para apagar e recomeçar
 
-    - Adicionar Candidato: Clique no botão roxo
-    - Insira número (2 dígitos)
-    -  Digite o nome
-    - Selecione uma foto
+Para Adicionar Candidato:
 
-### Remover Candidato: Clique no botão vermelho
+    Clique em "ADICIONAR CANDIDATO"
+    Digite número (2 dígitos) e nome
+    Selecione uma foto
+    Clique em "SALVAR CANDIDATO"
 
-    - Selecione da lista
-    - Confirme a remoção
+Para Ver Resultados:
 
-### 4. Ver Resultados
-
-    Clique no botão "PLACAR" para ver:
-
-    - Quantidade de votos por candidato
-    - Percentual de cada um
-    - Foto e nome dos candidatos
-
-## 📁 Estrutura do Projeto
-
-```text
-urna-eletronica/
-│
-├── urna.py              # Código principal
-├── README.md            # Este arquivo
-│
-├── sons/                # Sons do sistema
-│   ├── tecla.wav
-│   ├── confirma.wav
-│   └── erro.wav
-│
-└── fotos/               # Fotos dos candidatos
-    ├── 11.png
-    ├── 12.png
-    ├── 22.png
-    └── ...
-```
-
-## ⚙️ Configuração
-
-O sistema vem com 6 candidatos pré-cadastrados:
-
-    11 - Enzo
-    12 - José
-    22 - Chicão
-    33 - Zefinha
-    34 - Maria
-    66 - Onerildo
-
-## Personalização
-
-Existe uma função para adicionar candidatos no modo gráfico.
-}
-
-## 🛠️ Tecnologias Utilizadas
-
-  - [x] Python 3.7+: Linguagem principal
-  - [x] Tkinter: Framework para interface gráfica
-  - [x] Pillow (PIL): Manipulação de imagens
-  - [x] winsound (Windows) / playsound (multiplataforma): Reprodutor de áudio
-
-## 📝 Notas Importantes
-
-# Sistema Operacional
-
-Windows: Suporte completo a sons
-
-Linux/macOS: Sons podem não funcionar (modifique a função tocar_som)
-
-```python
-    # Alternativa multiplataforma
-    def tocar_som(arq):
-        if os.name == 'nt':  # Windows
-            winsound.PlaySound(arq, winsound.SND_FILENAME | winsound.SND_ASYNC)
-        else:  # Linux/macOS
-            os.system(f"aplay {arq} 2>/dev/null || afplay {arq} 2>/dev/null")
-```
-
-## Formatos de Imagem
-
-- Use PNG para transparência
-- Tamanho recomendado: 160x200 pixels
-- Nomeie as fotos como [número].png
-
-## 🐛 Solução de Problemas
-
-Problema:
-"ModuleNotFoundError: No module named 'PIL'"
-
-Execute: pip install pillow
-
-Sons não funcionam no Linux/macOS:
-Modifique a função tocar_som
-
-Fotos não aparecem: Verifique se estão na pasta fotos/
-
-Interface muito grande/pequena:	Ajuste a resolução em root.geometry()
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
-
-## 🤝 Agradecimentos
-
-- À comunidade Python por Tkinter
-- Aos desenvolvedores do Pillow (PIL Fork)
-- A todos que testaram e deram feedback
-
-Desenvolvido com ❤️ para fins educacionais
-
-Nota: Este é um projeto de simulação. Para eleições oficiais, use sistemas certificados pelo TSE.
+    Clique em "PLACAR"
+    Veja votos e porcentagens
+    Use "EXPORTAR RESULTADOS" para salvar
