@@ -42,7 +42,7 @@ def tocar_som(arquivo_som):
         pass
 
 def atualizar_status():
-    """Atualiza a barra de status com informações atuais"""
+    """Atualiza a barra de status com informações"""
     total_votos = sum(votos.values())
     status_text = f"🗳️ Urna Eletrônica | Sistema: {platform.system()} | Candidatos: {len(candidatos)} | Votos totais: {total_votos}"
     
@@ -123,12 +123,12 @@ def confirmar():
     if voto in candidatos:
         votos[voto] += 1
         tocar_som(SOM_CONFIRMA)
-        messagebox.showinfo("✅ VOTO CONFIRMADO",
+        messagebox.showinfo("VOTO CONFIRMADO",
                           f"Voto para {candidatos[voto]['nome']} registrado!")
         atualizar_status()  # Atualiza status após voto
     else:
         tocar_som(SOM_ERRO)
-        messagebox.showwarning("❌ VOTO NULO", "Número inválido!")
+        messagebox.showwarning("VOTO NULO", "Número inválido!")
     
     voto = ""
     atualizar()
@@ -276,7 +276,7 @@ def mostrar_placar():
     btn_frame.pack(pady=10)
     
     tk.Button(
-        btn_frame, text="🔄 ATUALIZAR",
+        btn_frame, text="🔄ATUALIZAR",
         bg="#3498db", fg="white",
         font=("Arial", 10),
         command=lambda: [win.destroy(), mostrar_placar()]
@@ -518,7 +518,7 @@ def remover_candidato():
 # INTERFACE PRINCIPAL
 # =========================
 root = tk.Tk()
-root.title("🗳️ Urna Eletrônica - Multiplataforma")
+root.title("Urna Eletrônica - Multiplataforma")
 root.geometry("850x550")  # Aumentado para acomodar rodapé
 root.configure(bg="#f5f5f5")
 root.resizable(False, False)
@@ -722,7 +722,7 @@ def sobre():
     
     tk.Label(
         sobre_win,
-        text="🗳️ URNA ELETRÔNICA",
+        text="URNA ELETRÔNICA",
         font=("Arial", 18, "bold"),
         bg="white", fg="#2c3e50"
     ).pack(pady=15)
@@ -743,7 +743,7 @@ def sobre():
     • Resultados em tempo real
     • Exportação de dados
     
-    🎯 Para fins educacionais
+    Para fins educacionais
     """
     
     tk.Label(
