@@ -1,5 +1,5 @@
 # 🕰️ Utilitários em Python para usar e/ou estudar
-<img width="1920" height="1080" alt="apps" src="https://github.com/user-attachments/assets/7017cef0-d948-49f3-acbe-5b92aedc3b56" />
+<img width="1920" height="1080" alt="apps" src="https://github.com/user-attachments/assets/ba3a421d-50c9-44ef-8814-41c6e5a8d0ad" />
 
 ![Python](https://img.shields.io/badge/Python-3.0%2B-blue)
 ![Tkinter](https://img.shields.io/badge/Tkinter-GUI-orange)
@@ -45,12 +45,13 @@
 git clone https://github.com/tutorfree/python_dev/
 cd pasta-do-utilitário
 
+
 ###📱 Compatibilidade
 
 - Windows 10/11
 - Linux (distribuições com suporte a Tkinter)
 - macOS (com suporte a X11)
-
+```
 
 ###Interface do Usuário
 
