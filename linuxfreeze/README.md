@@ -82,15 +82,6 @@ Exemplo conceitual:
 
 ---
 
-## 🧩 Casos de Uso:
-
-- Máquinas de cursos e escolas
-- Computadores públicos
-- Cybercafés
-- Ambientes onde reinstalar tudo toda semana não é viável
-
----
-
 ## 📌 Avisos Importantes
 
 ⚠️ **Qualquer erro de configuração em OverlayFS pode impedir o boot**
