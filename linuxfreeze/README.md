@@ -15,28 +15,9 @@ Ele foi pensado para ambientes como:
 - 🎓 Ambientes educacionais
 - 🌐 Cybercafés / lan houses
 - 📚 Máquinas públicas ou compartilhadas
-
+  
 **A ideia central é simples:**  
 O usuário pode usar a máquina livremente, mas nada persiste.
-
----
-
-## 🧠 Filosofia do Projeto
-
-Este projeto não nasce com fins comerciais.
-
-Ele surge da preocupação com:
-
-- Previsibilidade do sistema
-- Redução de manutenção
-- Segurança operacional
-- Clareza na comunicação com o usuário final
-
-### O LinuxFreeze prioriza:
-
-- **Transparência** → o usuário sabe que o sistema é temporário
-- **Reversibilidade total** → reiniciou, voltou ao estado limpo
-- **Uso de tecnologias nativas do Linux** → OverlayFS + systemd
 
 ---
 
@@ -85,27 +66,13 @@ Exemplo conceitual:
  ├── work/
  └── merged/
 ```
-
-- O ponto de montagem é definido explicitamente
-- Nenhuma conversão perigosa de `_` para `/`
-- Nenhuma inferência ambígua de paths
-
----
-
-## 🚫 O que este projeto NÃO faz
-
-- ❌ Não é um antivírus
-- ❌ Não é um sistema de criptografia
-- ❌ Não é um controle parental
-- ❌ Não tenta "proteger o usuário dele mesmo"
-
-**Ele apenas restaura o estado do sistema.**
-
 ---
 
 ## 🧪 Estado do Projeto
 
-✅ **Funcional** • ⚠️ **Experimental** • 🧠 **Educacional**
+✅ **Funcional**
+✅ **Experimental**
+✅ **Educacional**
 
 ### Testado em:
 
@@ -115,7 +82,7 @@ Exemplo conceitual:
 
 ---
 
-## 🧩 Casos de Uso Ideais
+## 🧩 Casos de Uso:
 
 - Máquinas de cursos e escolas
 - Computadores públicos
@@ -134,19 +101,6 @@ Exemplo conceitual:
 
 ---
 
-## 🤝 Contribuições
-
-Este projeto é aberto a:
-
-- Melhorias de código
-- Auditoria de segurança
-- Sugestões arquiteturais
-- Simplificação da experiência do usuário
-
-**Sem pressa. Sem hype. Sem monetização.**
-
----
-
 ## 🧭 Consideração Final
 
 > *"Sistemas previsíveis libertam o usuário. Sistemas frágeis o aprisionam."*
@@ -157,8 +111,4 @@ Esse projeto é sobre **previsibilidade**, não controle.
 
 ## 📄 Licença
 
-*[Adicione informações sobre a licença do projeto aqui]*
-
-## 🔗 Links
-
-*[Adicione links relevantes: repositório, documentação, issues, etc.]*
+*Este programa é free para uso*
