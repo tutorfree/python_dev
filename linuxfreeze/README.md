@@ -68,11 +68,11 @@ Exemplo conceitual:
 ```
 ---
 
-## 🧪 Estado do Projeto
+## Estado do Projeto
 
-✅ **Funcional**
-✅ **Experimental**
-✅ **Educacional**
+- ✅ **Funcional**
+- ✅ **Experimental**
+- ✅ **Educacional**
 
 ### Testado em:
 
