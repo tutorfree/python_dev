@@ -15,14 +15,12 @@ Uma ferramenta intuitiva estilo wizard que simplifica a integração de máquina
 ## 📋 Índice
 
 - [Funcionalidades](#-funcionalidades)
-- [Screenshots](#-screenshots)
 - [Pré-requisitos](#-pré-requisitos)
 - [Instalação](#-instalação)
 - [Uso](#-uso)
 - [Arquitetura](#-arquitetura)
 - [Configuração](#-configuração)
 - [Troubleshooting](#-troubleshooting)
-- [Contribuindo](#-contribuindo)
 - [Licença](#-licença)
 
 ---
