@@ -186,6 +186,10 @@ id joao.silva
 # Testa login (em outro terminal)
 ```
 
+### Download
+
+[github.com/tutorfree/python_dev/releases](https://github.com/tutorfree/python_dev/releases)
+
 ### License
 
 [License Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/)
