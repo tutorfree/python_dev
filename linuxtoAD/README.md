@@ -185,6 +185,7 @@ realm list
 id joao.silva
 
 # Testa login (em outro terminal)
+```
 
 ### License
 
