@@ -1,5 +1,5 @@
 # 🖥️ Linux AD Integrator
-<img width="828" height="769" alt="linuxtoAD-02" src="https://github.com/user-attachments/assets/32cf7e9f-1865-4c08-abb3-e996b6f2ef6a" />
+<img width="828" height="769" alt="linuxtoAD-02" src="https://github.com/user-attachments/assets/82560314-4312-4aeb-92e7-613ff29ac26c" />
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
