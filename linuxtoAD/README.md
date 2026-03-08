@@ -2,7 +2,6 @@
 <img width="828" height="769" alt="linuxtoAD-02" src="https://github.com/user-attachments/assets/82560314-4312-4aeb-92e7-613ff29ac26c" />
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Debian%20%7C%20Ubuntu%20%7C%20Fedora%20%7C%20RHEL-orange)](https://github.com/tutorfree/python_dev)
 [![AD](https://img.shields.io/badge/Active%20Directory-Integrated-blue)](https://github.com/tutorfree/python_dev)
 
